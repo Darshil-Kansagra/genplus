@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/profile.css'%}">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/all.js"
+        integrity="sha384-xymdQtn1n3lH2wcu0qhcdaOpQwyoarkgLVxC/wZ5q7h9gHtxICrpcaSUfygqZGOe"
+        crossorigin="anonymous"></script>
+        
+    <script defer src="{% static 'js/activepage.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+    <link rel="icon" href="{% static 'image/logo.png' %}">
+</head>
+<header Class="Site-Header">
+    <div Class="Site-Identity">
+        <img class="logo" src="{% static 'image/logo.png' %}" alt="logo image">
+    </div>
+    <nav Class="Site-Navigation">
+        <ul Class="Nav">
+            <li><a class="linkmetis" Href="home">Home</a></li>
+            <li><a class="linkmetis" Href="custombuild">Custombuild</a></li>
+            <li><a class="linkmetis" Href="customgamingpc">Customgamingpc</a></li>
+            <li><a class="linkmetis" Href="contact">Contact</a></li>
+            {% if request.session.username %}
+            <li>
+                <div class="dropdown">
+                    <button class="dropbtn">Hi, {{request.session.username}}
+                        <i class="fa fa-caret-down"></i>
+                    </button>
+                    <div class="dropdown-content">
+                        <a href="profile">My Profile</a>
+                        <a href="order">My Order</a>
+                        <a href="logout">logout</a>
+                    </div>
+                </div>
+            </li>
+            {% else %}
+            <a href="login"><input class="btnhead" type="button" value="Login"></a>
+            <a href="signup"><input class="btnhead" type="button" value="SignUp"></a>
+            {% endif %} 
+        </ul>
+    </nav>
+</header>
+
+<body>
+    <div class="container emp-profile">
+            <div class="row">
+                <div class="col-md-4">
+                    <ul class="nav nav-tabs" id="myTab" role="tablist">
+                        <h2 class="hmp">My Profile</h2>
+                        <li class="nav-item">
+                            <a class="nav-link" href="profile">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="editprofile">Edit</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-md-8">
+                    <div class="tab-content profile-tab" id="myTabContent">
+                        <div class="tab-pane fade show active">
+                            {% for result in user %}
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label>Username</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <span>{{result.username}}</span><br><br>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label>Name</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <span>{{result.name}}</span><br><br>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label>Email</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <span>{{result.email}}</span><br><br>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label>Phone</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <span>{{result.phone_no}}</span><br><br>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label>Address</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <span>{{result.address}}</span><br><br>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label>Postal Code</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <span>{{result.postalcode}}</span><br><br>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label>City</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <span>{{result.city}}</span><br><br>
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </div><br><br><br><br><br><br>
+</body>
+
+<footer>
+    <div class="footer">
+      <div class="contain">
+      <div class="col">
+        <h2>About us</h2>
+        <ul>
+          <li>24/7 Help Desk</li>
+          <li>No Wait Times</li>
+          <li>genplus@gmail.com</li>
+        </ul>
+      </div>
+      <div class="col">
+        <h2>Products</h2>
+        <ul>
+            <li><a class="footerlink" href="customgamingpc">Customgamingpc</a></li>
+            <li><a class="footerlink" href="custombuild">Custombuild</a></li>
+        </ul>
+      </div>
+      <div class="col">
+        <h2>Contact</h2>
+        <ul>
+          <li>+91 9409713073</li>
+          <li>+91 6353605048</li>
+          <li>+91 9054009770</li>
+        </ul>
+      </div>
+      <div class="col address">
+        <h2>Address </h2>
+        <ul>
+          <li>Alpha Mall 2 floor,Vastarapur,Ahmedabad</li>
+      </ul>
+      </div>
+    <div class="clearfix"></div>
+    </div>
+    </div>
+    </footer>
+  
+
+</html>

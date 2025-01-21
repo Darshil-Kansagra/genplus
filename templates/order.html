@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <Meta Charset="UTF-8" />
+  <Meta Http-Equiv="X-UA-Compatible" Content="IE=Edge" />
+  <Meta Name="Viewport" Content="Width=Device-Width, Initial-Scale=1.0" />
+  <title>Order</title>
+  {% load static %}
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/all.js"
+    integrity="sha384-xymdQtn1n3lH2wcu0qhcdaOpQwyoarkgLVxC/wZ5q7h9gHtxICrpcaSUfygqZGOe"
+    crossorigin="anonymous"></script>
+    
+    <script defer src="{% static 'js/activepage.js' %}"></script>
+  <link rel="stylesheet" href="{% static 'css/home.css' %}">
+  <link rel="stylesheet" href="{% static 'css/order.css' %}">
+  <link rel="icon" href="{% static 'image/logo.png' %}">
+</head>
+<header Class="Site-Header">
+<div Class="Site-Identity">
+    <img class="logo" src="{% static 'image/logo.png' %}" alt="logo image">
+</div>
+<nav Class="Site-Navigation">
+    <ul Class="Nav">
+        <li><a class="linkmetis" Href="home">Home</a></li>
+        <li><a class="linkmetis" Href="custombuild">Custombuild</a></li>
+        <li><a class="linkmetis" Href="customgamingpc">Customgamingpc</a></li>
+        <li><a class="linkmetis" Href="contact">Contact</a></li>
+        {% if request.session.username %}
+        <li>
+            <div class="dropdown">
+                <button class="dropbtn">Hi, {{request.session.username}}
+                    <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-content">
+                    <a href="profile">My Profile</a>
+                    <a href="order">My Order</a>
+                    <a href="logout">logout</a>
+                </div>
+            </div>
+        </li>
+        {% else %}
+        <a href="login"><input class="btnhead" type="button" value="Login"></a>
+        <a href="signup"><input class="btnhead" type="button" value="SignUp"></a>
+        {% endif %} 
+    </ul>
+</nav>
+</header>
+<body>
+  <section>
+    <h1>Your Orders</h1>
+    <div class="tbl-header">
+      <table cellpadding="0" cellspacing="0" border="0">
+          <tr>
+            <th>Order No</th>
+            <th>Name</th>
+            <th>Product Name</th>
+            <th>Price</th>
+            <th>Date</th>
+            <th>Time</th>
+          </tr>
+      </table>
+    </div>
+    <div class="tbl-content">
+      <table cellpadding="0" cellspacing="0" border="0">
+        {% for display in order %}
+        <tr>
+          <td>{{display.order_no}}</td>
+          <td>{{display.name}}</td>
+          <td>{{display.order_name}}</td>
+          <td>{{display.order_price}}</td>
+          <td>{{display.order_date}}</td>
+          <td>{{display.order_time}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    </div>
+  </section>
+  </div><br><br>
+</body>
+<footer>
+    <div class="footer">
+      <div class="contain">
+      <div class="col">
+        <h2>About us</h2>
+        <ul>
+          <li>24/7 Help Desk</li>
+          <li>No Wait Times</li>
+          <li>genplus@gmail.com</li>
+        </ul>
+      </div>
+      <div class="col">
+        <h2>Products</h2>
+        <ul>
+          <li><a class="footerlink" href="customgamingpc">Customgamingpc</a></li>
+          <li><a class="footerlink" href="custombuild">Custombuild</a></li>
+        </ul>
+      </div>
+      <div class="col">
+        <h2>Contact</h2>
+        <ul>
+          <li>+91 9409713073</li>
+          <li>+91 6353605048</li>
+          <li>+91 9054009770</li>
+        </ul>
+      </div>
+      <div class="col address">
+        <h2>Address </h2>
+        <ul>
+          <li>Alpha Mall 2 floor,Vastarapur,Ahmedabad</li>
+      </ul>
+      </div>
+    <div class="clearfix"></div>
+    </div>
+    </div>
+  </footer>
+</html>

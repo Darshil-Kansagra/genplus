@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <Meta Charset="UTF-8" />
+  <Meta Http-Equiv="X-UA-Compatible" Content="IE=Edge" />
+  <Meta Name="Viewport" Content="Width=Device-Width, Initial-Scale=1.0" />
+  <title>Checkout</title>
+  {% load static %}
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/all.js"
+    integrity="sha384-xymdQtn1n3lH2wcu0qhcdaOpQwyoarkgLVxC/wZ5q7h9gHtxICrpcaSUfygqZGOe"
+    crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.6/jspdf.plugin.autotable.min.js"></script> 
+    
+  <script defer src="{% static 'js/activepage.js' %}"></script>
+  <link rel="stylesheet" href="{% static 'css/home.css' %}">
+  <link rel="stylesheet" href="{% static 'css/checkout.css' %}">
+  <link rel="icon" href="{% static 'image/logo.png' %}">
+</head>
+<header Class="Site-Header">
+<div Class="Site-Identity">
+    <img class="logo" src="{% static 'image/logo.png' %}" alt="logo image">
+</div>
+<nav Class="Site-Navigation">
+    <ul Class="Nav">
+        <li><a class="linkmetis" Href="home">Home</a></li>
+        <li><a class="linkmetis" Href="custombuild">Custombuild</a></li>
+        <li><a class="linkmetis" Href="customgamingpc">Customgamingpc</a></li>
+        <li><a class="linkmetis" Href="contact">Contact</a></li>
+        {% if request.session.username %}
+        <li>
+            <div class="dropdown">
+                <button class="dropbtn">Hi, {{request.session.username}}
+                    <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-content">
+                    <a href="profile">My Profile</a>
+                    <a href="order">My Order</a>
+                    <a href="logout">logout</a>
+                </div>
+            </div>
+        </li>
+        {% else %}
+        <a href="login"><input class="btnhead" type="button" value="Login"></a>
+        <a href="signup"><input class="btnhead" type="button" value="SignUp"></a>
+        {% endif %} 
+    </ul>
+</nav>
+</header>
+<body><br><br>
+
+<div class="row">
+  <div class="col-75">
+    <div class="container">
+      <form action="checkout" method="post">
+      {% csrf_token %}
+        <div class="row">
+          <div class="col-50">
+            <h3>Order Review</h3><hr>
+            <table id="table1">
+              <tr>
+                <td>
+                  <label>{{Cabinets}}</label>
+                </td>
+                <td>
+                  <label>{{cab_price}}</label>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <label>{{Motherboard}}</label>
+                </td>
+                <td>
+                  <label>{{mb_price}}</label>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <label>{{Processor}}</label>
+                </td>
+                <td>
+                  <label>{{pro_price}}</label>
+                </td>
+              </tr>  
+              <tr>
+                <td>
+                  <label>{{GraphicCard}}</label>
+                </td>
+                <td>
+                  <label>{{gc_price}}</label>
+                </td>
+              </tr>                          
+              <tr>
+                <td>
+                  <label>{{SMPS}}</label>
+                </td>
+                <td>
+                  <label>{{smps_price}}</label>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <label>{{RAM}}</label>
+                </td>
+                <td>
+                  <label>{{ram_price}}</label>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <label>{{SSD}}</label>
+                </td>
+                <td>
+                  <label>{{ssd_price}}</label>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <label>{{HDD}}</label>
+                </td>
+                <td>
+                  <label>{{hdd_price}}</label>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  {% if total %}
+                  <label class="tp">Total</label>
+                  {% endif %}
+                </td>
+                <td>
+                  <label class="tp">{{total}}</label>
+                </td>
+              </tr>
+            </table>
+            {% if gp %}
+            {% for display in gp %}
+            <table id="table2">
+              <tr>
+                <td>
+                  <label>Cabinets</label>
+                </td>
+                <td>
+                  <label>{{display.Cabinets}}</label>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <label>Motherboard</label>
+                </td>
+                <td>
+                  <label>{{display.Motherboard}}</label>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <label>Processor</label>
+                </td>
+                <td>
+                  <label>{{display.Processor}}</label>
+                </td>
+              </tr>  
+              <tr>
+                <td>
+                  <label>GraphicCard</label>
+                </td>
+                <td>
+                  <label>{{display.GraphicCard}}</label>
+                </td>
+              </tr>                          
+              <tr>
+                <td>
+                  <label>SMPS</label>
+                </td>
+                <td>
+                  <label>{{display.SMPS}}</label>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <label>RAM</label>
+                </td>
+                <td>
+                  <label>{{display.RAM}}</label>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <label>SSD</label>
+                </td>
+                <td>
+                  <label>{{display.SSD}}</label>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <label>HDD</label>
+                </td>
+                <td>
+                  <label>{{display.HDD}}</label>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <label class="tp">Total</label>
+                </td>
+                <td>
+                  <label class="tp">{{display.price}}</label>
+                </td>
+              </tr>
+            </table>
+            {% endfor %}
+            {% endif %}                    
+          </div>
+          <div class="col-50">
+            <h3>Payment Method</h3><hr>
+             <input type="radio" name="link" name="paymethod" value="COD"></input>
+             <label>Cash On Delivery</label><br>
+			       <input type="radio" name="link" name="paymethod" value="CP" required></input>
+             <label>Card Payment</label>
+             <h3>Download Invoice</h3><hr>
+             {% if gp %}
+             <input class="button1" id="Button" type="button" onclick="generateb()" value="Download">
+             {% else %}
+             <input class="button1" id="Button" type="button" onclick="generatec()" value="Download">
+             {% endif %}
+          </div>
+        </div>
+        <button class="btn">Continue to checkout</button>
+      </form>
+    </div>
+  </div>
+</div><br><br><br>
+<script>
+  function generatec() {  
+    var doc = new jsPDF('p', 'pt', 'letter');  
+    var htmlstring = '';  
+    var tempVarToCheckPageHeight = 0;  
+    var pageHeight = 0;  
+    pageHeight = doc.internal.pageSize.height;  
+    specialElementHandlers = {  
+        // element with id of "bypass" - jQuery style selector  
+        '#bypassme': function(element, renderer) {  
+            // true = "handled elsewhere, bypass text extraction"  
+            return true  
+        }  
+    };  
+    margins = {  
+        top: 150,  
+        bottom: 60,  
+        left: 40,  
+        right: 40,  
+        width: 600  
+    };  
+    var y = 20;  
+    doc.setLineWidth(2);  
+    doc.text(200, y = y + 30, "Invoice");  
+    doc.autoTable({  
+        html: '#table1',  
+        startY: 70,  
+        theme: 'grid',  
+        columnStyles: {  
+            0: {  
+                cellWidth: 180,  
+            },  
+            1: {  
+                cellWidth: 180,  
+            },  
+            2: {  
+                cellWidth: 180,  
+            }  
+        },  
+        styles: {  
+            minCellHeight: 40  
+        }  
+    })  
+    doc.save('Invoice.pdf');  
+}   
+function generateb() {  
+  var doc = new jsPDF('p', 'pt', 'letter');  
+  var htmlstring = '';  
+  var tempVarToCheckPageHeight = 0;  
+  var pageHeight = 0;  
+  pageHeight = doc.internal.pageSize.height;  
+  specialElementHandlers = {  
+      // element with id of "bypass" - jQuery style selector  
+      '#bypassme': function(element, renderer) {  
+          // true = "handled elsewhere, bypass text extraction"  
+          return true  
+      }  
+  };  
+  margins = {  
+      top: 150,  
+      bottom: 60,  
+      left: 40,  
+      right: 40,  
+      width: 600  
+  };  
+  var y = 20;  
+  doc.setLineWidth(2);  
+  doc.text(200, y = y + 30, "Invoice");  
+  doc.autoTable({  
+      html: '#table2',  
+      startY: 70,  
+      theme: 'grid',  
+      columnStyles: {  
+          0: {  
+              cellWidth: 180,  
+          },  
+          1: {  
+              cellWidth: 180,  
+          },  
+          2: {  
+              cellWidth: 180,  
+          }  
+      },  
+      styles: {  
+          minCellHeight: 40  
+      }  
+  })  
+  doc.save('Invoice.pdf');  
+}  
+</script>
+</body>
+<footer>
+  <div class="footer">
+    <div class="contain">
+    <div class="col">
+      <h2>About us</h2>
+      <ul>
+        <li>24/7 Help Desk</li>
+        <li>No Wait Times</li>
+        <li>genplus@gmail.com</li>
+      </ul>
+    </div>
+    <div class="col">
+      <h2>Products</h2>
+      <ul>
+        <li><a class="footerlink" href="customgamingpc">Customgamingpc</a></li>
+        <li><a class="footerlink" href="custombuild">Custombuild</a></li>
+      </ul>
+    </div>
+    <div class="col">
+      <h2>Contact</h2>
+      <ul>
+        <li>+91 9409713073</li>
+        <li>+91 6353605048</li>
+        <li>+91 9054009770</li>
+      </ul>
+    </div>
+    <div class="col address">
+      <h2>Address </h2>
+      <ul>
+        <li>Alpha Mall 2 floor,Vastarapur,Ahmedabad</li>
+    </ul>
+    </div>
+  <div class="clearfix"></div>
+  </div>
+  </div>
+  </footer>
+</html>

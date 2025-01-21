@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html Lang="En">
+
+<head>
+  <Meta Charset="UTF-8" />
+  <Meta Http-Equiv="X-UA-Compatible" Content="IE=Edge" />
+  <Meta Name="Viewport" Content="Width=Device-Width, Initial-Scale=1.0" />
+  <title>Customgamingpc</title>
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'css/gp.css' %}">
+  <link rel="stylesheet" href="{% static 'css/home.css' %}">
+  <link rel="icon" href="{% static 'image/logo.png' %}">
+
+  <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/all.js"
+    integrity="sha384-xymdQtn1n3lH2wcu0qhcdaOpQwyoarkgLVxC/wZ5q7h9gHtxICrpcaSUfygqZGOe"
+    crossorigin="anonymous"></script>
+    <script defer src="{% static 'js/activepage.js' %}"></script>
+</head>
+<header Class="Site-Header">
+  <div Class="Site-Identity">
+    <img class="logo" src="{% static 'image/logo.png' %}" alt="logo image">
+  </div>
+  <nav Class="Site-Navigation">
+    <ul Class="Nav">
+      <li><a class="linkmetis" Href="home">Home</a></li>
+      <li><a class="linkmetis" Href="custombuild">Custombuild</a></li>
+      <li><a class="linkmetis" Href="customgamingpc">Customgamingpc</a></li>
+      <li><a class="linkmetis" Href="contact">Contact</a></li>
+      {% if request.session.username  %}
+      <li><div class="dropdown">
+        <button class="dropbtn">Hi, {{request.session.username}} 
+          <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-content">
+          <a href="profile">My Profile</a>
+          <a href="order">My Order</a>
+          <a href="logout">logout</a>
+        </div>
+      </div></li>
+      {% else %}
+      <a href="login"><input class="btnhead" type="button" value="Login"></a>
+      <a href="signup"><input class="btnhead" type="button" value="SignUp"></a>
+      {% endif %}
+    </ul>
+  </nav>
+</header>
+<body>
+  <div class="cgp">
+    <h3 class="midline sp">Step 1: Choose The Game You Are Planning To Play</h3>
+    <form action="customgamingpc" method="post">
+      {% csrf_token %}
+      {% for display in gp %}
+      <div class="g1">
+        <label>
+          <input type="radio" name="gp" value="{{display.gamename}}" required>
+          <img src="{{ display.gameimg.url }}" height="230">
+        </label><br>
+        <label>{{display.gamename}}</label>
+      </div>
+      {% endfor %}
+      <div class="cgp1">
+        <h3 class="midline">Step 2: Choose your platform</h3>
+        <label>
+          <input type="radio" name="pro" value="Intel" required>
+          <img src="{% static 'image/intel.png' %}">
+        </label>
+        <label>
+          <input type="radio" name="pro" value="AMD">
+          <img src="{% static 'image/amd.png' %}">
+        </label>
+        <div class="btncgp">
+          <button class="btn1">See your best build</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</body>
+<footer>
+    <div class="footer">
+      <div class="contain">
+      <div class="col">
+        <h2>About us</h2>
+        <ul>
+          <li>24/7 Help Desk</li>
+          <li>No Wait Times</li>
+          <li>genplus@gmail.com</li>
+        </ul>
+      </div>
+      <div class="col">
+        <h2>Products</h2>
+        <ul>
+          <li><a class="footerlink" href="customgamingpc">Customgamingpc</a></li>
+          <li><a class="footerlink" href="custombuild">Custombuild</a></li>
+        </ul>
+      </div>
+      <div class="col">
+        <h2>Contact</h2>
+        <ul>
+          <li>+91 9409713073</li>
+          <li>+91 6353605048</li>
+          <li>+91 9054009770</li>
+        </ul>
+      </div>
+      <div class="col address">
+        <h2>Address </h2>
+        <ul>
+          <li>Alpha Mall 2 floor,Vastarapur,Ahmedabad</li>
+      </ul>
+      </div>
+    <div class="clearfix"></div>
+    </div>
+    </div>
+  </footer>

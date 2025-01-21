@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html Lang="En">
+
+<head>
+    <Meta Charset="UTF-8" />
+    <Meta Http-Equiv="X-UA-Compatible" Content="IE=Edge" />
+    <Meta Name="Viewport" Content="Width=Device-Width, Initial-Scale=1.0" />
+    <title>Pre Build Pc</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+    <link rel="icon" href="{% static 'image/logo.png' %}">
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/all.js"
+      integrity="sha384-xymdQtn1n3lH2wcu0qhcdaOpQwyoarkgLVxC/wZ5q7h9gHtxICrpcaSUfygqZGOe"
+      crossorigin="anonymous"></script>
+      
+    <script defer src="{% static 'js/activepage.js' %}"></script>
+  </head>
+  <header Class="Site-Header">
+    <div Class="Site-Identity">
+      <img class="logo" src="{% static 'image/logo.png' %}">
+    </div>
+    <nav Class="Site-Navigation">
+      <ul Class="Nav">
+        <li><a class="linkmetis" Href="home">Home</a></li>
+        <li><a class="linkmetis" Href="custombuild">Custombuild</a></li>
+        <li><a class="linkmetis" Href="customgamingpc">Customgamingpc</a></li>
+        <li><a class="linkmetis" Href="contact">Contact</a></li>
+        {% if request.session.username  %}
+        <li><div class="dropdown">
+          <button class="dropbtn">Hi, {{request.session.username}} 
+            <i class="fa fa-caret-down"></i>
+          </button>
+          <div class="dropdown-content">
+            <a href="profile">My Profile</a>
+            <a href="order">My Order</a>
+            <a href="logout">logout</a>
+          </div>
+        </div></li>
+        {% else %}
+        <a href="login"><input class="btnhead" type="button" value="Login"></a>
+        <a href="signup"><input class="btnhead" type="button" value="SignUp"></a>
+        {% endif %}
+      </ul>    
+    </nav>
+  </header>
+<body>
+  <div class="by1">
+    <div class="byimg1">
+        <img height="600" src="{% static 'image/1.png' %}" alt="laptop" id="pcimg">
+    </div>
+    <div class="bycon1">
+      <form action="custombuild" method="post">
+        {% csrf_token %}
+        <div class="d1">
+            <label>Cabinets</label><br>
+            <select name="Cabinets"class="pcd" id="cab" required>
+              <option value="">--Please Select--</option>
+              {% for display in Cabinets %}
+              <option value="{{display.con_name}}">{{display.con_name}} +{{display.con_price}}</option>
+              {% endfor %}
+            </select>
+        </div>
+        <div class="d2">
+            <label>Motherboard</label><br>
+            <select name="Motherboard"class="pcd" required>
+                <option value="">--Please Select--</option>
+                {% for display in Motherboard %}
+                <option value="{{display.con_name}}">{{display.con_name}} +{{display.con_price}}</option>
+                {% endfor %}
+            </select>
+        </div><br>
+        <div class="d3">
+            <label>Processor</label><br>
+            <select name="Processor"class="pcd p" required>
+                <option value="">--Please Select--</option>
+                {% for display in Processor %}
+                <option value="{{display.con_name}}">{{display.con_name}} +{{display.con_price}}</option>
+                {% endfor %}
+            </select>
+        </div><br>
+        <div class="d4">
+            <label>Graphic Card</label><br>
+            <select name="GraphicCard"class="pcd" required>
+                <option value="">--Please Select--</option>
+                {% for display in GraphicCard %}
+                <option value="{{display.con_name}}">{{display.con_name}} +{{display.con_price}}</option>
+                {% endfor %}
+            </select>
+      </div>
+      <div class="d5">
+        <label>SMPS</label><br>
+        <select name="SMPS"class="pcd" required>
+            <option value="">--Please Select--</option>
+            {% for display in SMPS %}
+            <option value="{{display.con_name}}">{{display.con_name}} +{{display.con_price}}</option>
+            {% endfor %}
+        </select>
+      </div><br>
+      <div class="d6">
+        <label>RAM</label><br>
+        <select name="RAM"class="pcd" required>
+            <option value="">--Please Select--</option>
+            {% for display in RAM %}
+            <option value="{{display.con_name}}">{{display.con_name}} +{{display.con_price}}</option>
+            {% endfor %}
+        </select>
+      </div>
+      <div class="d7">
+        <label>SSD</label><br>
+        <select name="SSD"class="pcd" required>
+            <option value="">--Please Select--</option>
+            {% for display in SSD %}
+            <option value="{{display.con_name}}">{{display.con_name}} +{{display.con_price}}</option>
+            {% endfor %}
+        </select>
+      </div><br>
+      <div class="d8">
+        <label>HDD</label><br>
+        <select name="HDD"class="pcd" required>
+            <option value="">--Please Select--</option>
+            {% for display in HDD %}
+            <option value="{{display.con_name}}">{{display.con_name}} +{{display.con_price}}</option>
+            {% endfor %}
+        </select>
+      </div>
+    </div>
+    <div class="byend1">
+      <button class="button1">Next</button>
+    </div>
+  </form>
+</div><br><br>
+<script>
+  const img=document.querySelector('#pcimg')
+  const selectcab=document.querySelector('#cab')
+  const pc=["{% static 'image/2.png' %}","{% static 'image/3.png' %}","{% static 'image/4.png' %}","{% static 'image/5.png' %}","{% static 'image/6.png' %}","{% static 'image/7.png' %}","{% static 'image/8.png' %}","{% static 'image/9.png' %}","{% static 'image/10.png' %}",
+  "{% static 'image/11.png' %}","{% static 'image/12.png' %}","{% static 'image/13.png' %}","{% static 'image/14.png' %}","{% static 'image/15.png' %}"]
+
+  selectcab.addEventListener('change', () => {
+    const value=selectcab.options[selectcab.selectedIndex].value
+
+    switch (value) {
+      case "Gigabyte C301 4argb Fans(White)":
+      img.setAttribute('src',pc[0])
+      break;
+      case "Ant Esports ICE-5000 RGB(Black)":
+      img.setAttribute('src',pc[1])
+      break;
+      case "Thermaltake Core P8(Black)":
+      img.setAttribute('src',pc[2])
+      break;
+      case "Cooler Master HAF 700 EVO ARGB(Black)":
+      img.setAttribute('src',pc[3])
+      break;
+      case "NZXT H9 Elite Edition(White)":
+      img.setAttribute('src',pc[4])
+      break;
+      case "Lian Li Chassis 011 Dynamic XL(Black)":
+      img.setAttribute('src',pc[5])
+      break;
+      case "Fractal Design Pop XL(White)":
+      img.setAttribute('src',pc[6])
+      break;
+      case "Fractal Design Pop XL(Grey)":
+      img.setAttribute('src',pc[7])
+      break;
+      case "Antec P120 Crystal":
+      img.setAttribute('src',pc[8])
+      break;
+      case "ANT Esports Dynamic GT":
+      img.setAttribute('src',pc[9])
+      break;
+      default:
+      img.setAttribute('src',"{% static 'image/1.png' %}")
+      break;
+    }
+  })
+</script>
+</body>
+
+<footer>
+  <div class="footer">
+    <div class="contain">
+    <div class="col">
+      <h2>About us</h2>
+      <ul>
+        <li>24/7 Help Desk</li>
+        <li>No Wait Times</li>
+        <li>genplus@gmail.com</li>
+      </ul>
+    </div>
+    <div class="col">
+      <h2>Products</h2>
+      <ul>
+        <li><a class="footerlink" href="customgamingpc">Customgamingpc</a></li>
+        <li><a class="footerlink" href="custombuild">Custombuild</a></li>
+      </ul>
+    </div>
+    <div class="col">
+      <h2>Contact</h2>
+      <ul>
+        <li>+91 9409713073</li>
+        <li>+91 6353605048</li>
+        <li>+91 9054009770</li>
+      </ul>
+    </div>
+    <div class="col address">
+      <h2>Address </h2>
+      <ul>
+        <li>Alpha Mall 2 floor,Vastarapur,Ahmedabad</li>
+    </ul>
+    </div>
+  <div class="clearfix"></div>
+  </div>
+  </div>
+  </footer>
+</html>

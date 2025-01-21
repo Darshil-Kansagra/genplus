@@ -1,0 +1,68 @@
+@import url('https://fonts.googleapis.com/css2?family=Meera+Inimai&family=Mukta:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300&family=Meera+Inimai&family=Mukta:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cabin&display=swap');
+
+[type=radio] {
+  position: absolute;
+  opacity: 0;
+}
+
+[type=radio]+img {
+  cursor: pointer;
+  margin-right: 0.5rem;
+}
+
+[type=radio]:checked + img {
+  outline: 5px solid rgb(147, 51, 234);
+}
+.cgp{
+  margin-bottom: 50px;
+  display: inline-block;
+}
+.btncgp{
+  margin-left: 30px;
+  margin-top: 45px;
+}
+.cgp1{
+  float: left;
+  margin-left: 25px;
+}
+.sp{
+  margin-left: 25px;
+  margin-top: -5px;
+}
+.g1{
+  float: left;
+  color: white;
+  margin-left: 25px;
+  text-align: center;
+  font-size: 14px;
+  font-family: 'Cabin', sans-serif;
+  margin-bottom: 50px;
+}
+.btn1 {
+  background-color: rgb(147, 51, 234);
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 20px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  height: 45px;
+}
+
+.btn1 {
+  background-color: white;
+  color: black;
+  border: 2px solid rgb(147, 51, 234);
+  padding: 5px 30px;
+}
+
+.btn1:hover {
+  background-color: rgb(147, 51, 234);
+  color: aliceblue;
+}

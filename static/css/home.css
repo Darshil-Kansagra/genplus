@@ -1,0 +1,408 @@
+@import url('https://fonts.googleapis.com/css2?family=Meera+Inimai&family=Mukta:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300&family=Meera+Inimai&family=Mukta:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cabin&display=swap');
+
+body {
+  font-family: 'Mukta', sans-serif;
+  Margin: 0;
+  background-color: rgb(17, 24, 39);
+  padding: 0;
+}
+
+header {
+  background-color: rgb(31, 41, 55);
+  font-family: 'Mukta', sans-serif;
+}
+
+.webname {
+  Color: rgb(216, 180, 254);
+  Text-Decoration: None;
+  font-size: 30px;
+}
+/* header link */
+.linkmetis {
+  Text-Decoration: None;
+  Color: rgb(237, 238, 239);
+  font-size: 20px;
+  letter-spacing: 0.5px;
+  padding: 0 10px;
+  position: relative;
+  box-sizing: border-box;
+}
+
+.linkmetis:after {
+  content: "";
+  position: absolute;
+  background-color: rgb(147, 51, 234);
+  height: 3px;
+  width: 0;
+  left: 0;
+  bottom: -3px;
+  transition: 0.3s;
+}
+
+.linkmetis:hover {
+  color: #ffffff;
+}
+.linkmetis:hover:after {
+  width: 100%;
+}
+
+.Site-Header {
+  Border-Bottom: 1px Solid rgb(107, 114, 128);
+  Padding: 0.5em 1em;
+  Display: Flex;
+  Justify-Content: Space-Between;
+}
+.activelink{
+  border-bottom: 4px solid rgb(147, 51, 234);
+}
+.dropdown .dropbtn {
+  font-size: 20px;
+  border: none;
+  outline: none;
+  color: rgb(237, 238, 239);
+  background-color: inherit;
+  font-family: 'Mukta', sans-serif;
+}
+.dropbtn:hover {
+  color: rgb(147, 51, 234);
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: rgb(31, 41, 55);
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  float: none;
+  color: rgb(237, 238, 239);
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.dropdown-content a:hover {
+  background-color: rgb(147, 51, 234);
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* header button */
+.btnhead {
+  background-color: rgb(147, 51, 234);
+  border: 0px;
+  height: 35px;
+  width: 75px;
+  color: #ffffff;
+  font-size: 14px;
+  border-radius: 10px;
+  font-weight: 600;
+  font-family: 'Mukta', sans-serif;
+  margin-right: 10px;
+}
+
+.btnhead:hover {
+  background-color: rgba(103, 56, 141, 0.674);
+}
+
+.Site-Identity h1 {
+  Font-Size: 1.5em;
+  Margin: 0.6em 0;
+  Display: Inline-Block;
+}
+
+.Site-Navigation ul,
+.Site-Navigation li {
+  Margin: 0;
+  Padding: 0;
+}
+
+.Site-Navigation li {
+  Display: Inline-Block;
+  Margin: 1.4em 1em 1em 1em;
+}
+
+/* back image */
+.info {
+  float: left;
+  padding-top: 120px;
+  padding-left: 100px;
+}
+
+.image {
+  float: right;
+}
+
+/* tag head */
+.taghead {
+  color: white;
+  font-size: 70px;
+}
+
+span {
+  color: rgb(147, 51, 234);
+}
+
+.logo {
+  height: 60px;
+  padding-top: 10px;
+}
+.main{
+  margin-bottom: 1675px;
+}
+.lh{
+  line-height: 12px;
+}
+.sp{
+  padding-top: 45px;
+}
+/* tag line */
+.tagline {
+  margin-top: -70px;
+  font-size: 35px;
+}
+
+/* head para */
+.headpara {
+  float: left;
+  padding-left: 100px;
+  width: 650px;
+  font-size: large;
+  color: rgb(156, 163, 175);
+  text-align: justify;
+  margin-top: -25px;
+  font-family: 'Kanit', sans-serif;
+}
+.part1,.part2{
+  float: left;
+  padding-bottom: 75px;
+  margin-top: -45px;
+  padding-left: 35px;
+}
+.maincon{
+  margin-left: 750px;
+  margin-top: -425px;
+  margin-bottom: 140px;
+}
+.main1img{
+  margin-left: 750px;
+  margin-top: -320px;
+  padding-left: 45px;
+}
+.midpara{
+  width: 700px;
+  font-size: 20px;
+  color: rgb(156, 163, 175);
+  text-align: justify;
+  margin-top: 25px;
+  font-family: 'Kanit', sans-serif;
+}
+.midline{
+  font-family: 'Mukta', sans-serif;
+  font-size: xx-large;
+  color: white;
+}
+.main1con{
+  padding-left: 45px;
+}
+.midpara{
+  width: 700px;
+  font-size: 20px;
+  color: rgb(156, 163, 175);
+  text-align: justify;
+  margin-top: 25px;
+  font-family: 'Kanit', sans-serif;
+}
+
+/* buildyourself div */
+.by1 {
+  background-color: #ffffff;
+  margin-left: 150px;
+  height: 725px;
+  width: 80%;
+  margin-top: 25px;
+  border-radius: 15px;
+}
+
+.byimg1 {
+  float: left;
+  margin-top: 10px;
+}
+
+.bycon1 {
+  float: left;
+  margin-top: 85px;
+}
+
+.byend1 {
+  float: left;
+  margin-left: 80%;
+  margin-top: 15px;
+}
+
+.pcd {
+  width: 300px;
+  font-size: 16px;
+  letter-spacing: 1px;
+  height: 40px;
+  padding: 2px 15px;
+  border: 1px solid #e7e7e7;
+  border-top-width: 2px;
+  border-left-width: 2px;
+  box-shadow: none;
+  border-radius: 0;
+  transition: all 0.3s ease 0s;
+  margin-top: 15px;
+  font-family: 'Cabin', sans-serif;
+}
+
+.p {
+  width: 645px;
+}
+
+/* label */
+label {
+  font-weight: 600;
+  font-size: larger;
+  margin-bottom: 60px;
+}
+
+.d1 {
+  float: left;
+}
+
+.d2 {
+  float: left;
+  margin-left: 45px;
+}
+
+.d3 {
+  float: left;
+  margin-top: 20px;
+}
+
+.d4 {
+  float: left;
+  margin-top: 20px;
+}
+
+.d5 {
+  float: left;
+  margin-left: 45px;
+  margin-top: 20px;
+}
+
+.d6 {
+  float: left;
+  margin-top: 20px;
+}
+
+.d7 {
+  float: left;
+  margin-top: 20px;
+  margin-left: 45px;
+}
+
+.d8 {
+  float: left;
+  margin-top: 20px;
+}
+
+
+.btnlap:hover {
+  background-color: black;
+  color: aliceblue;
+}
+
+.button1 {
+  background-color: rgb(147, 51, 234);
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 20px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  width: 145px;
+  cursor: pointer;
+  height: 45px;
+}
+
+.button1 {
+  background-color: white;
+  color: black;
+  border: 2px solid rgb(147, 51, 234);
+  padding: 5px 30px;
+}
+
+.button1:hover {
+  background-color: rgb(147, 51, 234);
+  color: aliceblue;
+}
+
+/* footer part */
+.footer {
+  background-color: black;
+  padding-left: 165px;
+}
+.footer .col {
+  width: 190px;
+  height: auto;
+  float: left;
+  box-sizing: border-box;
+  padding: 20px;
+  margin-left: 90px;
+}
+.footer .col h2 {
+  margin: 0;
+  padding: 0;
+  font-size: 20px;
+  line-height: 17px;
+  padding: 10px 0;
+  color: rgb(147, 51, 234);
+  text-transform: uppercase;
+}
+.footer .col ul {
+  list-style-type: none;
+  padding: 0;
+}
+.footer .col ul li  {
+  Text-Decoration: None;
+  Color: rgb(237, 238, 239);
+  font-size: 15px;
+  letter-spacing: 0.5px;
+  padding: 0 10px;
+  position: relative;
+  box-sizing: border-box;
+}
+.footerlink{
+  Text-Decoration: None;
+  Color: rgb(237, 238, 239);
+  font-size: 15px;
+  letter-spacing: 0.5px;
+  padding: 0 10px;
+  position: relative;
+  box-sizing: border-box;
+}
+.address ul li {
+  display: inline-block;
+  padding-right: 5px !important;
+}
+
+.footer .col ul li:hover {
+  cursor: pointer;
+  color: lightgray;
+  font-weight: bold;
+}
+.clearfix {
+  clear: both;
+}

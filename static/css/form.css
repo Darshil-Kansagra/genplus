@@ -1,0 +1,153 @@
+@import url('https://fonts.googleapis.com/css2?family=Meera+Inimai&family=Mukta:wght@300&display=swap');
+
+body {
+    background-color: rgb(17, 24, 39);
+    font-family: 'Mukta', sans-serif;
+}
+
+.form-container {
+    font-family: 'Mukta', sans-serif;
+    padding: 0 20px 20px 0;
+}
+/* main block */
+.form-container .form-horizontal {
+    background-color: #ffffff;
+    padding: 50px 40px 40px;
+    border-radius: 15px;
+    margin-left: 450px;
+    width: 650px;
+    margin-top: 25px;
+}
+/* main block title */
+.form-horizontal .title {
+    color: #333;
+    font-size: 80px;
+    font-weight: 700;
+    margin: 0 0 8px 0;
+}
+/* main block decription */
+.form-horizontal .description {
+    color: #333;
+    font-size: 18px;
+    font-weight: 600;
+    margin: 0 0 30px 0;
+    display: block;
+}
+/* form css */
+.form-horizontal .form-group {
+    margin: 0 0 30px;
+}
+
+.form-horizontal .form-group:nth-child(3) {
+    margin-bottom: 20px;
+}
+
+.form-horizontal .form-control {
+    color: #446DCA;
+    font-size: 16px;
+    letter-spacing: 1px;
+    height: 40px;
+    padding: 2px 15px;
+    border: 1px solid #e7e7e7;
+    border-top-width: 2px;
+    border-left-width: 2px;
+    box-shadow: none;
+    border-radius: 0;
+    transition: all 0.3s ease 0s;
+    margin-right: 25px;
+}
+select{
+    width: 227px;
+}
+
+.form-horizontal .btn {
+    color: #fff;
+    background-color: rgb(147, 51, 234);
+    font-size: 18px;
+    font-weight: 600;
+    text-align: left;
+    width: 180px;
+    padding: 10px 30px;
+    margin: 0 25px 0 0;
+    border-radius: 30px;
+    border: none;
+    display: inline-block;
+    overflow: hidden;
+    position: relative;
+    z-index: 1;
+    transition: all 0.3s ease 0s;
+}
+
+.form-horizontal .btn:hover,
+.form-horizontal .btn:focus {
+    color: #fff;
+    background-color: #222;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    outline: none;
+}
+
+.form-horizontal .btn:after {
+    content: '';
+    height: 70%;
+    width: 110%;
+    border-top: 5px solid #fff;
+    border-bottom: 5px solid #fff;
+    transform: rotate(-50deg);
+    position: absolute;
+    right: -105px;
+    top: -65px;
+    transition: all 0.5s ease 0s;
+}
+
+.form-horizontal .btn:hover:after {
+    right: -70px;
+    top: -30px;
+}
+
+.form-horizontal .signup {
+    color: #333;
+    font-size: 18px;
+    font-weight: 600;
+    margin: 0 0 35px 0;
+    vertical-align: text-top;
+    display: inline-block;
+}
+
+.form-horizontal .signup a {
+    color: #446DCA;
+    text-decoration: underline;
+    margin: 0 0 0 25px;
+}
+
+.form-horizontal .signup a:hover {
+    color: #333;
+    transition: all 0.3s ease 0s;
+}
+
+.message {
+    color: #446DCA;
+    font-size: 16px;
+    letter-spacing: 1px;
+    border: 1px solid #e7e7e7;
+    border-top-width: 2px;
+    border-left-width: 2px;
+    box-shadow: none;
+    border-radius: 0;
+    transition: all 0.3s ease 0s;
+    width: 450px;
+    height: 120px;
+    font-family: 'Mukta', sans-serif;
+}
+/* messages */
+.alert-success {
+    color: #0f5132;
+    background-color: #d1e7dd;
+    border-color: #badbcc;
+    padding: 12px;
+}
+.alert-danger {
+    color: #842029;
+    background-color: #f8d7da;
+    border-color: #f5c2c7;
+    padding: 12px;
+}

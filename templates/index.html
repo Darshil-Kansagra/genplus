@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html Lang="En">
+
+<head>
+  <Meta Charset="UTF-8" />
+  <Meta Http-Equiv="X-UA-Compatible" Content="IE=Edge" />
+  <Meta Name="Viewport" Content="Width=Device-Width, Initial-Scale=1.0" />
+  <title>Home</title>
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'css/home.css' %}">
+  <link rel="icon" href="{% static 'image/logo.png' %}">
+
+  <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/all.js"
+    integrity="sha384-xymdQtn1n3lH2wcu0qhcdaOpQwyoarkgLVxC/wZ5q7h9gHtxICrpcaSUfygqZGOe"
+    crossorigin="anonymous"></script>
+    <script defer src="{% static 'js/activepage.js' %}"></script>
+</head>
+<header Class="Site-Header">
+  <div Class="Site-Identity">
+    <img class="logo" src="{% static 'image/logo.png' %}" alt="logo image">
+  </div>
+  <nav Class="Site-Navigation">
+    <ul Class="Nav">
+      <li><a class="linkmetis" Href="home">Home</a></li>
+      <li><a class="linkmetis" Href="custombuild">Custombuild</a></li>
+      <li><a class="linkmetis" Href="customgamingpc">Customgamingpc</a></li>
+      <li><a class="linkmetis" Href="contact">Contact</a></li>
+      {% if request.session.username  %}
+      <li><div class="dropdown">
+        <button class="dropbtn">Hi, {{request.session.username}} 
+          <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-content">
+          <a href="profile">My Profile</a>
+          <a href="order">My Order</a>
+          <a href="logout">logout</a>
+        </div>
+      </div></li>
+      {% else %}
+      <a href="login"><input class="btnhead" type="button" value="Login"></a>
+      <a href="signup"><input class="btnhead" type="button" value="SignUp"></a>
+      {% endif %}
+    </ul>
+  </nav>
+</header>
+<body>
+  <div class="main">
+    <div class="info">
+      <h1 class="taghead">Welcome to <span class="inputhead"></span></h1>
+      <h2 class="tagline"><span class="input"></span></h2>
+    </div>
+    <div class="image">
+      <img class="bakimg" height="575" src="{% static 'image/login.png'%}" alt="bak image">
+    </div>
+    <div class="headpara">
+      <p>
+        We Never Settle For Less & neither should you. We assure you that you’ll hardly find this level of craftsmanship &
+        customizability elsewhere.
+        Every system, at GenPlus, is assembled & quality checked by experts who handle only one PC at a time to ensure
+        that your dream PC is up to the mark.
+      </p>
+    </div>
+    <div class="part1">
+      <div class="mainimg">
+        <img height="525" src="{% static 'image/Difference-pc.png'%}" alt="">
+      </div>
+      <div class="maincon">
+        <h2 class="midline">What Makes Us Stand Out?</h2>
+        <p class="midpara">
+          Since we started our journey in 2015, we’ve been striving to provide you with the ultimate Custom PC experience. We are a team of proficient professionals who are zealous to make all our valued customers happy &amp; satisfied by offering premium-quality products &amp; unmatched services. That’s why we are widely recognized as the most reliable Custom PC builder in India, specializing in building High-Performance Custom Workstation Computers, Gaming PCs, and Servers.
+        </p>
+      </div>
+    </div>
+    <div class="part2">
+      <div class="main1con">
+        <h2 class="midline lh">Bring Home</h2>
+        <h2 class="midline lh">Your Dream PC Now!</h2>
+        <p class="midpara sp">
+          Have any questions or queries that you would like to ask pertaining to a new GenPlus System or want to upgrade the existing one? Feel free to get in touch with us by simply dropping a mail at: <span>genplus@gmail.com</span> or making a phone call on: <span>+91-9409713073</span>!
+        </p>
+      </div>
+      <div class="main1img">
+        <img height="500" src="{% static 'image/contact us.jpg'%}" alt="">
+      </div>
+    </div>
+  </div>
+</body>
+<footer>
+  <div class="footer">
+    <div class="contain">
+    <div class="col">
+      <h2>About us</h2>
+      <ul>
+        <li>24/7 Help Desk</li>
+        <li>No Wait Times</li>
+        <li>genplus@gmail.com</li>
+      </ul>
+    </div>
+    <div class="col">
+      <h2>Products</h2>
+      <ul>
+        <li><a class="footerlink" href="customgamingpc">Customgamingpc</a></li>
+        <li><a class="footerlink" href="custombuild">Custombuild</a></li>
+      </ul>
+    </div>
+    <div class="col">
+      <h2>Contact</h2>
+      <ul>
+        <li>+91 9409713073</li>
+        <li>+91 6353605048</li>
+        <li>+91 9054009770</li>
+      </ul>
+    </div>
+    <div class="col address">
+      <h2>Address </h2>
+      <ul>
+        <li>Alpha Mall 2 floor,Vastarapur,Ahmedabad</li>
+    </ul>
+    </div>
+  <div class="clearfix"></div>
+  </div>
+  </div>
+</footer>
+
+<script src="{% static 'js/script.js' %}" type="text/javascript"></script>
+<script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+<script>
+  var typed = new Typed(".inputhead", {
+    strings: ["GenPlus", "Gen+"],
+    typeSpeed: 80,
+    backSpeed: 70,
+    loop: true
+  });
+</script>
+<script>
+  var typed = new Typed(".input", {
+    strings: ["Best Performance PCs", "Very Affordable Prices", "Ultra Durable Components", "Easy PC Assembling", "All Company Dealerships", "Wide Range of laptop and accessories"],
+    typeSpeed: 80,
+    backSpeed: 70,
+    loop: true
+  });
+</script>
+</html>
